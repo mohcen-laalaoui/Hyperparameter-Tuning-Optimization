@@ -1,4 +1,6 @@
 # 🔥 Hyperparameter Tuning & Optimization
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
 ## 🚀 Overview
 This project focuses on optimizing the hyperparameters of a **Random Forest Classifier** using **Optuna** and **Scikit-Learn** to improve model performance. The goal is to explore different tuning strategies, evaluate model performance, and analyze the impact of hyperparameters.
