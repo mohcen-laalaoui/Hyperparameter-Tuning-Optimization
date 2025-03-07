@@ -46,22 +46,26 @@ We use **Optuna** to optimize the following hyperparameters:
 ### Example of Optuna Search Space
 ```python
 def objective(trial):
-    n_estimators = trial.suggest_int("n_estimators", 50, 300)
-    max_depth = trial.suggest_int("max_depth", 5, 30)
-    min_samples_split = trial.suggest_int("min_samples_split", 5, 20)
-    min_samples_leaf = trial.suggest_int("min_samples_leaf", 5, 15)
-    max_features = trial.suggest_categorical("max_features", ["sqrt", "log2", None])
-    
-    rf_model = RandomForestClassifier(
+    n_estimators = trial.suggest_int("n_estimators", 50, 100)  
+    max_depth = trial.suggest_int("max_depth", 5, 100)  
+    min_samples_split = trial.suggest_int("min_samples_split", 2, 5)
+    min_samples_leaf = trial.suggest_int("min_samples_leaf", 1, 4)
+    max_features = trial.suggest_categorical("max_features", ["sqrt", "log2"])  
+
+    model = RandomForestClassifier(
         n_estimators=n_estimators,
         max_depth=max_depth,
         min_samples_split=min_samples_split,
         min_samples_leaf=min_samples_leaf,
         max_features=max_features,
-        random_state=42,
+        random_state=42
     )
+
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
     
-    return cross_val_score(rf_model, X_train, y_train, cv=10, scoring="accuracy").mean()
+    score = cross_val_score(model, X_train, y_train, cv=skf, scoring="accuracy").mean()
+    
+    return score 
 ```
 
 ## 📊 Results & Observations
