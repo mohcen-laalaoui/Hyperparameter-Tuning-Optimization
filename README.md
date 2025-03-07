@@ -13,10 +13,8 @@ This project focuses on optimizing the hyperparameters of a **Random Forest Clas
 ```
 📁 hyperparameter-tuning-optimization
 │-- 📄 README.md
-│-- 📄 requirements.txt
-│-- 📄 hyperparameter_tuning.ipynb  # Jupyter Notebook with implementation
-│-- 📁 data  # Folder for dataset (if needed)
-│-- 📁 results  # Stores logs and best hyperparameters
+│-- 📄 breast_cancer.csv
+│-- 📄 Model Hyperparameter Tuning.ipynb  
 ```
 
 ## 🛠 Installation & Setup
